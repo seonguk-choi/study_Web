@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery06</title>
+<style type="text/css">
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	//tag선택자
+	alert("table tag의 개수 : " +$("table").length);
+	
+	//table tag의 자식요소인 tr의 개수
+	alert("table tr tag의 개수 : " + $("table tr").length);
+	
+	//table tag의 자식요소인 tr의 자식요소인 th의 개수
+	alert("table th tag의 개수 : " + $("table th").length);
+	
+	//table tag의 자식요소인 td의 자식요소인 th의 개수
+	alert("table td tag의 개수 : " + $("table td").length);
+		
+});
+</script>
+</head>
+<body>
+<div align="center">
+<table border="1">
+	<tr>
+	<th>이름</th>
+	<th>혈액형</th>
+	<th>주소</th>
+	</tr>
+	<tr>
+	<th>홍길동</th>
+	<th>A형</th>
+	<th>광주시경열로 3</th>
+	</tr>
+	<tr>
+	<th>홍길동</th>
+	<th>B형</th>
+	<th>광주시경열로 3</th>
+	</tr>
+	<tr>
+	<th>홍길동</th>
+	<th>AB형</th>
+	<th>광주시경열로 3</th>
+	</tr>
+	<tr>
+	<th>홍길동</th>
+	<th>O형</th>
+	<th>광주시경열로 3</th>
+	</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<%@page import="com.member.study.MemberDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("utf-8");
+MemberDTO dto = (MemberDTO) request.getAttribute("dto");
+%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Member Info</title>
+</head>
+<body>
+<div align="center">
+<h3>[회원정보보기]</h3>
+</div>
+</body>
+</html>

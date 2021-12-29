@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<itme>
+		<img>images/apple1.jpg</img>
+	</itme>
+	<itme>
+		<img>images/apple2.jpg</img>
+	</itme>
+	<itme>
+		<img>images/apple3.jpg</img>
+	</itme>
+	<itme>
+		<img>images/banana1.jpg</img>
+	</itme>
+	<itme>
+		<img>images/banana2.jpg</img>
+	</itme>
+	<itme>
+		<img>images/banana3.jpg</img>
+	</itme>
+	<itme>
+		<img>images/pear1.jpg</img>
+	</itme>
+	<itme>
+		<img>images/pear2.jpg</img>
+	</itme>
+	<itme>
+		<img>images/pear3.jpg</img>
+	</itme>
+</items>

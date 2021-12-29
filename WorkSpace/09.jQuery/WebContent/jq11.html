@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery11</title>
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$.ajax({
+			dataType : "json",
+			url : "memberList02.jsp",
+			success : function(data){resultHtml(data);},
+			error : function(){alert("JSON Data Loading Erro!");}
+		}); //ajax()
+	});//click()
+	function resultHtml(data){
+		//alert("JSON DATA Loading Success!");
+		var html = "<table border='1'>";
+		html +="<tr>"
+		html +="<th>이름</th>"
+		html +="<th>아이디</th>"
+		html +="<th>비밀번호</th>"
+		html +="<th>나이</th>"
+		html +="<th>주소</th>"
+		html +="<th>전화번호</th>"
+		html +="</tr>"
+		$.each(data, function(key, value){
+		html +="<tr align='center'>"
+		html +="<td>" + value.name+"</td>"
+		html +="<td>" + value.id+"</td>"
+		html +="<td>" + value.pw+"</td>"
+		html +="<td>" + value.age+"</td>"
+		html +="<td>" + value.addr+"</td>"
+		html +="<td>" + value.tel+"</td>"
+		html +="</tr>"			
+		});//each()
+		html += "</table>";
+		$("#display").html(html);
+	}//resultHtml()
+});//ready()
+</script>
+</head>
+<body>
+<button id="btn">JSON Data Load</button>
+<br/><br/>
+
+<div id="display" >
+JSON Data Loading...
+</div>
+</body>
+</html>

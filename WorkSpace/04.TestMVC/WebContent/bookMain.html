@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP05 Main</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css" />
+<script type="text/javascript">
+	function fnSubmit() {
+		if (confirm("도서정보를 입력하시겠습니까?")) {
+			var text = /[0-9]{3}-[0-9]{2}-[0-9]{4}-[0-9]{3}-[0-9]{1}$/;
+			var isbn = $("#isbnNum").val();
+			if (text.test(isbn)) {
+				return true;
+			} else {
+				alert("ISBN 형식이 잘못 입력되었습니다.");
+				$("#isbnNum").val("");
+				$("#isbnNum").focus();
+				return false;
+			}
+		}//if(도서추가?)
+		return false;
+	}//fnSubmit()
+
+	function fnReset() {
+		if (confirm("정말 취소하시겠습니까?")) {
+			return true;
+		}
+		return false;
+	}//fnReset()
+	
+	function fnDelete(x) {
+		var isbn = this.val(x);
+		if (confirm("정말 취소하시겠습니까?")) {
+			location.href="ds.do?id=isbn";
+			return true;
+		}
+		return false;
+	}//fnDelete()
+</script>
+</head>
+<body>
+	<div class="bg">
+		<video muted autoplay loop>
+			<source src="rem.mp4" type="video/mp4">
+		</video>
+		<div class="text">
+			<div align="center">
+				<h3>도서 정보입력</h3>
+				<form action="is.do" method="post" onsubmit="return fnSubmit()"
+					onreset="return fnReset()">
+					<table>
+						<tr>
+							<th class="ths">제목</th>
+							<td class="tds"><input type="text" name="title"
+								required="required" class="input" /></td>
+						</tr>
+						<tr>
+							<th class="ths">저자</th>
+							<td class="tds"><input type="text" name="name"
+								required="required" class="input" /></td>
+						</tr>
+						<tr>
+							<th class="ths">ISBN</th>
+							<td class="tds"><input type="text" name="isbn"
+								required="required" placeholder="XXX-XX-XXXX-XXX-X" id="isbnNum"
+								class="input" /></td>
+						</tr>
+						<tr>
+							<th class="ths">출판사</th>
+							<td class="tds"><input type="text" name="comp"
+								required="required" class="input" /></td>
+						</tr>
+						<tr>
+							<th class="ths">단가</th>
+							<td class="tds"><input type="number" id="price" name="cost"
+								required="required" class="input" /></td>
+						</tr>
+						<tr>
+							<th class="ths">수량</th>
+							<td class="tds"><input type="number" name="qty" value="1"
+								min="1" required="required" class="input" /></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center"><input type="submit"
+								value="도서정보입력" class="btn" /> <input type="reset"
+								value="정보입력취소" class="btn" /> <input type="button"
+								value="전체도서보기" onclick="location.href='gals.do'" class="btn" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

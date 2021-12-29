@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+@mixin ie8 {
+    .ie8 {
+        @content;
+    }
+}
+
+/* reset */
+*{margin: 0; padding: 0}
+body {padding: 20px;}
+
+
+.only-sr {
+    overflow: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px;
+    height: 1px;
+}
+.answer {
+	display: flex;
+}
+
+.answer > h4 {
+	
+	height: 25px;
+}
+
+.radio-items {
+    display: block;
+    width: 200px;
+    background: #C4C4C4;
+    vertical-align: middle;
+    padding: 7px 0;
+    margin-left: 10px;
+    text-align: center;
+    
+}   
+.radio-items > div {
+        display: inline-block;
+        width: 25px;
+        height:25px;
+        margin: 0 5px;
+        text-align: center;
+}
+label {
+        display: block;
+        background: #ffffff;
+        width: 25px;
+        height: 25px;
+        color: #000000;      
+        border: 1px solid #000000;
+        padding-top: 1px;
+        border-radius : 100%;
+        cursor: pointer;
+}
+input[type="radio"]:checked + label{
+        background-color: #000000;
+        color: #fff;
+    }
+}
+
+</style>
+<body>
+<form action="studentResult.bo" method="post" onsubmit="fnAplly">
+	<div>
+		<img alt="시험지" src="images/">
+	</div>
+	<div class="info-wrap">
+		<h3>OMR</h3>
+		<div class="std-info">		
+			<div class="std">
+				<div>이름</div>
+				<div>${dto.name}</div>
+			</div>
+			<div class="std">
+				<div>수험번호</div>
+				<div>${dto.std_code}</div>
+			</div>
+		</div>
+		<div class="std">
+			<div class="timer">00:00</div>
+		</div>
+	</div>
+	<div class="answer-wrap">
+		<div class="answer">
+			<h4>1번</h4>	
+		<div class="radio-items">
+		        <div>  <!-- width auto important, 소수점 백그라운드 이슈로 인해 auto 설정 -->
+		            <input id="c1" class="only-sr checked" type="radio" name="temp3" value="1" checked>
+		            <label for="c1">1</label>
+		        </div>
+	        <div>
+	            <input id="c2" class="only-sr" type="radio" name="temp3" value="2">
+	            <label for="c2">2</label>
+	        </div>
+	        <div>
+	            <input id="c3" class="only-sr" type="radio" name="temp3" value="3">
+	            <label for="c3">3</label>
+	        </div>
+	        <div>
+	            <input id="c4" class="only-sr" type="radio" name="temp3" value="4">
+	            <label for="c4">4</label>
+	        </div>
+ 	   </div>
+		</div>
+	</div>
+	<div class="btn-wrap">
+		<input type="button" value="처음으로" onclick="fnMain()"/>
+		<input type="submit" value="시험제출" onclick="fnAnswerSubmit()"/>
+	</div>
+</form>
+</body>
+</html>
